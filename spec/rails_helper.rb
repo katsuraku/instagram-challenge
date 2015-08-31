@@ -9,6 +9,7 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :selenium
 require 'support/database_cleaner'
+require 'support/factory_girl.rb'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -24,7 +25,7 @@ require 'support/database_cleaner'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# Dir[Rails.root.join('spec/support/factories.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
