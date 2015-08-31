@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'liking pictures' do
   before do
-    user = User.create email: 'kirsten@jones.com', password: 'kjkjkjkj', password_confirmation: 'kjkjkjkj'
+    user = User.create email: 'kirsten@jones.com', password: 'kjkjkjkj', password_confirmation: 'kjkjkjkj', username: 'katsuraku'
     user.pictures.create(caption: 'Amazing friggin caption', image: File.open("#{Rails.root}/spec/support/rails.png"))
     login_as user
   end
