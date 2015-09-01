@@ -9,7 +9,7 @@
             %h5= picture.user.username
           - else
             %h5= picture.user.email
-          =image_tag picture.image.url(:medium)
+          =image_tag picture.image.url(:square)
           %h5= picture.caption
           = link_to "Delete" , picture_path(picture), method: :delete
           = link_to "Like", picture_likes_path(picture), class: 'likes-link'
