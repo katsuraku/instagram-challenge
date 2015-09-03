@@ -1,30 +1,30 @@
 %br
 %a(href='/pictures/new') Add a picture
-.center-block
-  %ul
-    - if @pictures.any?
-      - @pictures.each do |picture|
-        %li
-          - if picture.user.username
-            %p= picture.user.username
-          - else
-            %p= picture.user.email
-          =image_tag picture.image.url(:medium)
-          %p= picture.caption
-          = link_to "Delete" , picture_path(picture), method: :delete
-          = link_to "Like", picture_likes_path(picture), class: 'likes-link'
-          %span.likes_count= picture.likes.count
-          = 'like'.pluralize picture.likes.count
-          %p= link_to "Comment", new_picture_comment_path(picture.id)
-          - picture.comments.each do |comment|
-            - if comment.user.username
-              %p= comment.user.username
+.container-fluid
+  .text-center
+    %ul
+      - if @pictures.any?
+        - @pictures.each do |picture|
+          %li
+            - if picture.user.username
+              %p= picture.user.username
             - else
-              %p= comment.user.email
-            %p= comment.my_comment
-            = link_to "Delete comment", picture_comment_path(picture, comment), method: :delete
+              %p= picture.user.email
+            =image_tag picture.image.url(:medium)
+            %p= picture.caption
+            = link_to "Delete" , picture_path(picture), method: :delete
+            = link_to "Like", picture_likes_path(picture), class: 'likes-link'
+            %span.likes_count= picture.likes.count
+            = 'like'.pluralize picture.likes.count
+            %p= link_to "Comment", new_picture_comment_path(picture.id)
+            - picture.comments.each do |comment|
+              - if comment.user.username
+                %p= comment.user.username
+              - else
+                %p= comment.user.email
+              %p= comment.my_comment
+              = link_to "Delete comment", picture_comment_path(picture, comment), method: :delete
 
 
-    - else
-      No pictures yet!
-</div>
+      - else
+        No pictures yet!

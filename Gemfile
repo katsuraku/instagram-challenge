@@ -55,4 +55,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'codeclimate-test-reporter'
+  gem 'pry'
 end

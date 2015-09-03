@@ -8,9 +8,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @picture = Picture.find(params[:picture_id])
-    @comment = @picture.comments.build_with_user(comment_params, current_user)
-    if @comment.save
+    comment = CommentCreator.call(comment_params)
+    if comment.save
       redirect_to pictures_path
     else
       render 'new'
@@ -28,6 +27,9 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:my_comment)
+    comment_params = params.require(:comment).permit(:my_comment)
+    comment_params[:current_user] = current_user
+    comment_params[:picture_id] = params[:picture_id]
+    comment_params
   end
 end
