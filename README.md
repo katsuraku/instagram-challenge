@@ -64,7 +64,7 @@ I want to see how many times each one has been liked.
 #### How to run 
 * Clone or fork the repo to your local machine
 * Install ruby and ruby-on-rails, then run `bundle install` on the command line to install all required gems locally
-* Run `bin/rake db:create` to create database
+* Run `bin/rake db:create` and `bin/rake db:migrate` to set up database
 * Run `rails server` on the command line to view it on your local host at http://localhost:3000/
 * Tests can be run by running `rspec` on the command line
 * Also available on heroku at https://stark-refuge-1002.herokuapp.com
