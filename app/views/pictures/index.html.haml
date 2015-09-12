@@ -22,10 +22,11 @@
             %p= comment.my_comment
             = link_to "Delete comment", picture_comment_path(picture, comment), method: :delete
             %br
+            %br
           %p= link_to "Post a comment", new_picture_comment_path(picture.id)
           = link_to "Delete picture" , picture_path(picture), method: :delete
-
-
+          %br
+          %br
     - else
       No pictures yet!
 </div>
