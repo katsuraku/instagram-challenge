@@ -6,7 +6,7 @@ Pix - an Instagram clone
 Pix clones some of the features of Instagram. A user can sign up, upload and delete their pictures, add and delete comments on pictures and like pictures. Pictures are displayed with their comments and the number of likes they have had.
 
 #### Technologies and tools used
-* Production: Ruby, Rails, JavaScript jQuery, PSQL, Active Record, FactoryGirl, Shoulda, Devise, CSS with Bootstrap
+* Production: Ruby, Rails, jQuery, PSQL, Active Record, FactoryGirl, Shoulda, Devise, CSS with Bootstrap
 * Testing: RSpec, Capybara, Poltergeist, Factory Girl, Shoulda, Warden, Databse Cleaner
 
 #### User stories
@@ -69,7 +69,7 @@ I want to see how many times each one has been liked.
 * Tests can be run by running `rspec` on the command line
 * Also available on heroku at https://stark-refuge-1002.herokuapp.com
 
-#### Work in Progress
+#### Work in progress
 
 * Styling to be developed
 * To be connected to Amazon Web Services for scaling
