@@ -1,38 +1,47 @@
-%a(href='/pictures/new') Add a picture
 %br
-%br
+%a(href='/pictures/new') Post a picture...
+-# %br
+-# %br
 .center-block
   %ul
     - if @pictures.any?
-      - @pictures.each do |picture|
-        %li
-          - if picture.user.username
-            .strong
-              %p= picture.user.username
-          - else
-            .strong
-              %p= picture.user.email
-          =image_tag picture.image.url(:medium)
-          %p= picture.caption
-          = link_to "Like", picture_likes_path(picture), class: 'likes-link'
-          %span.likes_count= picture.likes.count
-          = 'like'.pluralize picture.likes.count
-          - picture.comments.each do |comment|
-            - if comment.user.username
-              .strong
-                %p= comment.user.username
-            - else
-              .strong
-                %p= comment.user.email
-            .comment
-              %p= comment.my_comment
-            = link_to "Delete comment", picture_comment_path(picture, comment), method: :delete
-            %br
-            %br
-          %p= link_to "Post a comment", new_picture_comment_path(picture.id)
-          = link_to "Delete picture" , picture_path(picture), method: :delete
-          %br
-          %br
+      .pic-wrapper.row
+        - @pictures.each do |picture|
+          .pic
+            .pic-head
+              .name
+                %li
+                  - if picture.user.username
+                    .strong
+                      %p= picture.user.username
+                  - else
+                    .strong
+                      %p= picture.user.email
+            .image-center-block
+              =image_tag picture.image.url(:medium), class:'img-responsive'
+            .pic-bottom
+              .caption
+                =picture.caption
+                = link_to "Like", picture_likes_path(picture), class: 'likes-link'
+                %span.likes_count= picture.likes.count
+                = 'like'.pluralize picture.likes.count
+                - picture.comments.each do |comment|
+                  .comment
+                    .username
+                      - if comment.user.username
+                        %p= comment.user.username
+                      - else
+                        %p= comment.user.email
+                    .comment-content
+                      = comment.my_comment
+                    - if comment.user == current_user
+                      = link_to "Delete comment", picture_comment_path(picture, comment), method: :delete
+                    %br
+                    %br
+              %p= link_to "Post a comment...", new_picture_comment_path(picture.id)
+              = link_to "Delete picture" , picture_path(picture), method: :delete
+              %br
+              %br
     - else
       No pictures yet!
 </div>
